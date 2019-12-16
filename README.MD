@@ -1,1 +1,1 @@
-My Updates info
+My Updates info regarding projects
