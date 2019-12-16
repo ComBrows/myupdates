@@ -4,6 +4,8 @@ UPDATE MAINTENACE PROJECT HOTS
 13.12.2019
 order_srtn:
 - change numbering squence for srtn to avoid conflic or blank srtn no
+main dashboard:
+- change method loading data to reduce loading time
 
 15.12.2019
 dispatch:
