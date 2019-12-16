@@ -1,0 +1,14 @@
+UPDATE MAINTENACE PROJECT HOTS
+==============================
+
+13.12.2019
+order_srtn:
+- change numbering squence for srtn to avoid conflic or blank srtn no
+
+15.12.2019
+dispatch:
+- optimize view vpicklst 
+  existing source:
+    - select `hpick`.`pickref` AS `pickref`,`hpick`.`pickdate` AS `pickdate`,(select count(1) from `vpickpartlst` where (convert(`vpickpartlst`.`hpick_pickref` using utf8) = `hpick`.`pickref`)) AS `countpick`,`hpick`.`fsl_fslid` AS `fsl_fslid` from `hpick` having (`countpick` > 0) ;
+  new source:
+    - create or replace view vpicklst as select dpick.hpick_pickref, hpick.pickdate, count(1), hpick.fsl_fslid from (( dpick left join hpick on (hpick.pickref=dpick.hpick_pickref)) left join ddispatch on(ddispatch.hpick_pickref = dpick.hpick_pickref and ddispatch.partitem_partid = dpick.partitem_partid)) where ddispatch.hpick_pickref is null group by dpick.hpick_pickref ;
