@@ -9,7 +9,7 @@ main dashboard:
 
 15.12.2019
 dispatch:
-- optimize view vpicklst 
+- optimize view vpicklst
   existing source:
     - select `hpick`.`pickref` AS `pickref`,`hpick`.`pickdate` AS `pickdate`,(select count(1) from `vpickpartlst` where (convert(`vpickpartlst`.`hpick_pickref` using utf8) = `hpick`.`pickref`)) AS `countpick`,`hpick`.`fsl_fslid` AS `fsl_fslid` from `hpick` having (`countpick` > 0) ;
   new source:
