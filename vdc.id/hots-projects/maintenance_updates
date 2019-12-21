@@ -19,3 +19,8 @@ dispatch:
 dispatch:
 - bug fixing:
 	-change hpick_pickref to pickref in srtn
+
+21.12.2019
+receive_order:
+- optimize:
+  - alter table hdispatch add index(disawb) ;
